@@ -1,5 +1,3 @@
-Sure, let's add the step to create the `login.php` file to the `readme.md`:
-
 # PHP Mail Server with phpmailer/phpmailer
 
 This PHP Mail Server is a simple example of how to send emails using the phpmailer/phpmailer library. It provides an HTTP endpoint to send emails via a POST request.
