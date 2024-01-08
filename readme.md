@@ -14,7 +14,7 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
 1. Clone this repository to your server or project directory:
 
    ```bash
-   git clone https://github.com/yourusername/mail-server.git
+   git clone https://github.com/bitmonti/mail-server.git
    ```
 
 2. Navigate to the project directory:
