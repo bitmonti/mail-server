@@ -1,3 +1,5 @@
+Sure, let's add the step to create the `login.php` file to the `readme.md`:
+
 # PHP Mail Server with phpmailer/phpmailer
 
 This PHP Mail Server is a simple example of how to send emails using the phpmailer/phpmailer library. It provides an HTTP endpoint to send emails via a POST request.
@@ -27,6 +29,14 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
    composer require phpmailer/phpmailer
    ```
 
+4. Create a file named `login.php` in the `config` folder:
+
+   ```bash
+   touch config/login.php
+   ```
+
+   This file will be used to store your email configuration settings.
+
 ## Configuration
 
 1. Configure the email settings in `/config/login.php`:
@@ -34,7 +44,7 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
    ```php
    <?php
    return [
-       'host' => 'smtp.ionos.de', // Postausgangsserver
+       'host' => 'smtp.ionos.de', // Outgoing Mail Server
        'port' => 465, // 465 or 587
        'secure' => 'ssl', // Enable `tls` encryption, `ssl` also accepted
        'user' => 'your username here',
@@ -57,13 +67,7 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
 
 ## Usage
 
-1. Start the PHP development server:
-
-   ```bash
-   php -S localhost:8000
-   ```
-
-2. Send a POST request to the mail server route to send an email. Use the route `/mail-server/index.php/send/mail`.
+1. Send a POST request to the mail server route to send an email. Use the route `/mail-server/index.php/send/mail`.
 
    Example using cURL:
 
@@ -73,7 +77,7 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
 
    Replace `recipient@example.com`, `Hello`, and `This is a test email.` with your recipient's email address, subject, and message.
 
-3. Check the server's response for success or error messages.
+2. Check the server's response for success or error messages.
 
 ## Contributors
 

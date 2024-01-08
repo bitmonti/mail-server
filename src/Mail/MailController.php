@@ -27,6 +27,12 @@ class MailController
                 return;
             }
 
+            // check if there is a message
+            if (empty($data['message'])) {
+                echo json_encode(['success' => false, 'message' => "Please provide a message."]);
+                return;
+            }
+
             //Server settings
             $mail->SMTPDebug = 0; // Enable verbose debug output
             $mail->isSMTP(); // Set mailer to use SMTP
