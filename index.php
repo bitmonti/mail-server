@@ -1,8 +1,8 @@
 <?php
 require __DIR__ . '/init.php';
 
-ini_set('display_errors', 1); // Turn on/off error reporting
-error_reporting(E_ALL); // Turn on/off error reporting
+ini_set('display_errors', 0); // Turn on/off error reporting
+// error_reporting(E_ALL); // Turn on/off error reporting
 
 // set routes
 $routes = [
