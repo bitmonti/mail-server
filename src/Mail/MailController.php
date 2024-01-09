@@ -2,23 +2,31 @@
 
 namespace App\Mail;
 
+use App\Core\RateControl;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-class MailController
+
+class MailController extends RateControl
 {
     public function sendMail()
     {
         // Load Composer's autoloader
         require 'vendor/autoload.php';
 
-        // Instantiation and passing `true` enables exceptions
-        $mail = new PHPMailer(true);
-
-        // Get login data
-        $config = require __ROOT__ . '/config/login.php';
-
         try {
+            // Record the attempt and check rate limit
+            if (!$this->attemptWithinLimits()) {
+                echo json_encode(['success' => false, 'message' => "Rate limit exceeded. Try again later."]);
+                return;
+            }
+
+            // Instantiation and passing `true` enables exceptions
+            $mail = new PHPMailer(true);
+
+            // Get login data
+            $config = require __ROOT__ . '/config/login.php';
+
             $data = json_decode(file_get_contents('php://input'), true);
 
             // Check if the email is valid
@@ -53,9 +61,10 @@ class MailController
             $mail->Body    = e($data['message']);
             $mail->AltBody = e($data['message']);
 
-            $mail->send();
+            // $mail->send();
             echo json_encode(['success' => true, 'message' => 'Message has been sent']);
         } catch (Exception $e) {
+            echo $e;
             echo json_encode(['success' => false, 'message' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
         }
     }
