@@ -4,7 +4,7 @@ $cors = require __DIR__ . '/config/cross-origin.php';
 header("Access-Control-Allow-Origin: " . $cors['allow']);
 header('Access-Control-Allow-Credentials: true');
 header("Access-Control-Allow-Methods: POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
 setlocale(LC_TIME, 'de_DE');
 

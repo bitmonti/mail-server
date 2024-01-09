@@ -15,6 +15,18 @@ class MailController extends RateControl
         require 'vendor/autoload.php';
 
         try {
+            // Stored token (should be securely stored, e.g., in an environment variable)
+            $token = require __ROOT__ . '/config/token.php';
+
+            // Retrieve the token from the request header
+            $headers = apache_request_headers();
+            $receivedToken = $headers['authorization'] ?? '';
+
+            if ($receivedToken !== $token['stored']) {
+                echo json_encode(['success' => false, 'message' => "Invalid token. Extend authorization header with custom phrase stored in `token.php`"]);
+                return;
+            }
+
             // Record the attempt and check rate limit
             if (!$this->attemptWithinLimits()) {
                 echo json_encode(['success' => false, 'message' => "Rate limit exceeded. Try again later."]);
