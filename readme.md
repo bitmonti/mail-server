@@ -42,11 +42,18 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
    ```php
    <?php
    return [
-       'host' => 'smtp.ionos.de', // Outgoing Mail Server
-       'port' => 465, // 465 or 587
-       'secure' => 'ssl', // Enable `tls` encryption, `ssl` also accepted
-       'user' => 'your username here',
-       'pass' => 'your password here',
+      'host' => 'smtp.ionos.de', // Outgoing Mail Server
+      'port' => 465, // 465 or 587
+      'secure' => 'ssl', // Enable `tls` encryption, `ssl` also accepted
+      /**
+      * Some providers like iCloud restrict different domains
+      * If HOST doesn't allow customers mail-domain use `from` it
+      * overrides submitted customer mail.
+      * Customers email gets shipped anyway in message body
+      * */
+      'from' => 'use allowed from address of your provider',
+      'user' => 'your username here',
+      'pass' => 'your password here',
    ];
    ```
 

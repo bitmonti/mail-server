@@ -41,6 +41,13 @@ class MailController extends RateControl
                 return;
             }
 
+
+            $from = $data['email'];
+
+            if ($config['from']) {
+                $from = $config['from'];
+            }
+
             //Server settings
             $mail->SMTPDebug = 0; // Enable verbose debug output
             $mail->isSMTP(); // Set mailer to use SMTP
@@ -52,7 +59,7 @@ class MailController extends RateControl
             $mail->Port =  $config['port']; // TCP port to connect to
 
             //Recipients
-            $mail->setFrom($config['user'], $data['name']);
+            $mail->setFrom($from, $data['name']);
             $mail->addAddress($config['user'], $data['name']);
 
             // Content
