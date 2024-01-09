@@ -52,8 +52,9 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
       * Some providers like iCloud restrict different domains.
       * `from` will override customers email.
       * Customers email get shipped in message body anyway.
+      * Use allowed provider `from` domain:
       * */
-      'from' => 'use allowed provider `from` address',
+      'from' => '',
    ];
    ```
 
