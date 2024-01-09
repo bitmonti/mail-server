@@ -1,5 +1,5 @@
 <?php
-$cors = require __DIR__ . '/config/cross-origin.php';
+$cors = require __DIR__ . '/config/crossOrigin.php';
 
 header("Access-Control-Allow-Origin: " . $cors['allow']);
 header('Access-Control-Allow-Credentials: true');
