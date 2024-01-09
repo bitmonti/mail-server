@@ -12,13 +12,13 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
 1. Clone this repository to your server or project directory:
 
    ```bash
-   git clone https://github.com/bitmonti/mail-server.git
+   git clone https://github.com/bitmonti/mailwynn.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd mail-server
+   cd mailwynn
    ```
 
 3. Install `phpmailer/phpmailer` library using Composer:
@@ -65,12 +65,12 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
 
 ## Usage
 
-1. Send a POST request to the mail server route to send an email. Use the route `/mail-server/index.php/send/mail`.
+1. Send a POST request to the mail server route to send an email. Use the route `/mailwynn/index.php/send/mail`.
 
    Example using cURL:
 
    ```bash
-   curl -X POST http://localhost:8000/mail-server/index.php/send/mail -d "to=recipient@example.com&subject=Hello&message=This is a test email."
+   curl -X POST http://localhost:8000/mailwynn/index.php/send/mail -d "to=recipient@example.com&subject=Hello&message=This is a test email."
    ```
 
    Replace `recipient@example.com`, `Hello`, and `This is a test email.` with your recipient's email address, subject, and message.
