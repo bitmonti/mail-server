@@ -49,9 +49,9 @@ class MailController
 
             // Content
             $mail->isHTML(true); // Set email format to HTML
-            $mail->Subject = $data['subject'];
-            $mail->Body    = $data['message'];
-            $mail->AltBody = $data['message'];
+            $mail->Subject = e($data['subject']);
+            $mail->Body    = e($data['message']);
+            $mail->AltBody = e($data['message']);
 
             $mail->send();
             echo json_encode(['success' => true, 'message' => 'Message has been sent']);

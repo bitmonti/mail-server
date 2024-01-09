@@ -11,3 +11,11 @@ require __DIR__ . '/autoload.php';
 require __DIR__ . '/config/rootDirectory.php';
 
 $container = new App\Core\Container();
+
+// OUTPUT SECURE
+function e($str)
+{
+    $str = trim($str);
+    $str = htmlspecialchars_decode($str);
+    return htmlentities($str, ENT_QUOTES, 'UTF-8');
+}
