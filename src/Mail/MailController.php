@@ -61,7 +61,7 @@ class MailController extends RateControl
             $mail->Body    = e($data['message']);
             $mail->AltBody = e($data['message']);
 
-            // $mail->send();
+            $mail->send();
             echo json_encode(['success' => true, 'message' => 'Message has been sent']);
         } catch (Exception $e) {
             echo $e;
