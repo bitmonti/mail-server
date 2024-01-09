@@ -21,3 +21,23 @@ if (isset($routes[$pathInfo])) {
   $method = $route['method'];
   $controller->$method();
 }
+?>
+
+<!DOCTYPE HTML>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>&#128640; &#127757; &#128187; &#10024; &#127796;</title>
+</head>
+
+<body>
+  <div>
+    <p style="font-size: 28px;">&#129322;</p>
+  </div>
+</body>
+
+</html>
+
+<?php ob_end_flush(); ?>
