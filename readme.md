@@ -51,7 +51,7 @@ This PHP Mail Server is a simple example of how to send emails using the phpmail
       * overrides submitted customer mail.
       * Customers email gets shipped anyway in message body
       * */
-      'from' => 'use allowed from address of your provider',
+      'from' => 'use allowed provider `from` address',
       'user' => 'your username here',
       'pass' => 'your password here',
    ];
